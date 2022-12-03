@@ -1,0 +1,14 @@
+.menu-icon{
+    font-size: 32px;
+    cursor: pointer;
+}
+:host{
+    header{
+    display: flex;
+    flex-direction: row;
+    padding: 0 5rem 0 1rem;
+    h2{
+        line-height: 1.3;
+    }
+    }
+}

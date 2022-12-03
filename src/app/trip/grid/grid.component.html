@@ -1,0 +1,25 @@
+<div style="margin: 10px 0;">
+    <button class="btn btn-primary me-3">Copy</button>
+    <button
+        class="btn btn-primary me-3"
+        (click)="exportAsExcel()">
+        Export as Excel
+    </button>
+    <button
+        class="btn btn-primary me-3"
+        (click)="exportAsCSV()">
+        Export as CSV
+    </button>
+    <button class="btn btn-primary">Print</button>
+</div>
+
+<ag-grid-angular
+    style="width: 100%; height: 100%"
+    class="ag-theme-alpine"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [rowData]="rowData$ | async"
+    [rowHeight]="rowHeight"
+    [pagination]="true"
+    (gridReady)="onGridReady($event)"
+    (cellClicked)="onCellClicked($event)"></ag-grid-angular>

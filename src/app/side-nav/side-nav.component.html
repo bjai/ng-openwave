@@ -1,0 +1,34 @@
+<!-- side bar main wrapper -->
+<ng-container *ngIf="showSideNav | async as isSide">
+    <div
+        class="side-nav-bar"
+        [ngClass]="{ 'side-nav-bar-collapsed': !isSide }">
+
+        <!-- overlay -->
+        <div
+            class="side-nav-bar-overlay"
+            [ngStyle]="{ 'transition': 'background-color ' + duration + 's, visibility ' + duration + 's' }"
+            [ngClass]="{ 'side-nav-bar-overlay-collapsed': !isSide }"
+            (click)="onSidebarClose()"></div>
+
+        <!-- side bar -->
+        <div
+            class="side-nav-bar-menu-container"
+            [ngStyle]="getSideNavBarStyle(isSide)">
+
+            <!-- close button -->
+            <div>
+                <span
+                    class="material-icons side-nav-bar-close"
+                    (click)="onSidebarClose()">
+                    <i class="bi bi-x-lg"></i>
+                </span>
+            </div>
+
+            <!-- side bar content -->
+            <div class="side-nav-bar-content-container">
+                <ng-container *ngTemplateOutlet="sidenavTemplateRef"></ng-container>
+            </div>
+        </div>
+    </div>
+</ng-container>

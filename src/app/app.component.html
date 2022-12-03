@@ -1,0 +1,9 @@
+<app-side-nav
+    [sidenavTemplateRef]="navContent"
+    [navWidth]="280"
+    [duration]="0.5"></app-side-nav>
+<app-header></app-header>
+<router-outlet></router-outlet>
+<ng-template #navContent>
+    <app-side-nav-content></app-side-nav-content>
+</ng-template>
