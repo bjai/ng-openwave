@@ -1,4 +1,4 @@
-<header>
+<header *ngIf="isheader | async">
     <div class="header-menu">
         <span
             (click)="toggleSideNav()"
@@ -7,4 +7,12 @@
         </span>
     </div>
     <h2>Manage Trip Sheet</h2>
+    <div class="header-logout ms-auto p-1">
+        <span
+            (click)="logout()"
+            class="menu-icon material-icons">
+            <i class="bi bi-box-arrow-left"></i>
+        </span>
+    </div>
+
 </header>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 import * as data from '../../assets/json/user.json';
 
@@ -8,7 +8,9 @@ import { User } from '../model/user';
 @Injectable()
 export class AuthService {
 
-    private isloggedIn: boolean = false;
+    isloggedIn: boolean = false;
+
+    isloggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     userList: any = (data as any).default;
 
 
@@ -24,10 +26,12 @@ export class AuthService {
                 }
 
             });
+        this.isloggedIn$.next(this.isloggedIn);
         return of(this.isloggedIn);
     }
 
     isUserLoggedIn(): boolean {
+        this.isloggedIn$.next(this.isloggedIn);
         return this.isloggedIn;
     }
 
